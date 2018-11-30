@@ -49,7 +49,7 @@ set (GETTEXT_PACKAGE ${PACKAGE})
 
 if ("${PACKAGEMENT}" STREQUAL "") ## do not check if we're using the same version when packaging the application (e.g. if we just want to generate a tarball of a previous version)
 	# we need GLDI which contains most global var: check it now to avoid many errors with regex
-	pkg_check_modules (GLDI REQUIRED gldi=${VERSION})
+	pkg_check_modules (GLDI REQUIRED)
 	if (NOT GLDI_FOUND)
 		execute_process(
 			COMMAND pkg-config --modversion gldi  # 2.2.0-3
