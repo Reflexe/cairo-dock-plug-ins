@@ -34,7 +34,7 @@ static GList * _cd_upower_add_and_ref_device_if_battery (UpDevice *pDevice, GLis
 {
 	UpDeviceKind kind;
 	g_object_get (G_OBJECT (pDevice), "kind", &kind, NULL);
-	if (kind == UP_DEVICE_KIND_BATTERY)
+	if (kind == UP_DEVICE_KIND_BATTERY || kind == UP_DEVICE_KIND_UPS)
 	{
 		pBatteryDeviceList = g_list_append (pBatteryDeviceList, pDevice);
 		g_object_ref (pDevice);  // since the object does not belong to us, we ref it here, and we'll keep our ref until the end of the applet.
